@@ -4,9 +4,6 @@
 
 #include <TaskManagerIO.h>
 
-// число ножек
-int num_of_pins = 5;
-
 // ножки 
 int pins[] = {3, 5, 6, 9, 10};
 
@@ -22,8 +19,11 @@ int ledState[] = {LOW, LOW, LOW, LOW, LOW};
 void setup()
 {
   // подготовка ножек к работе
-  for (int i = 0; i < num_of_pins; ++i)
-    pinMode(pins[i], OUTPUT);
+  pinMode(pins[0], OUTPUT);
+  pinMode(pins[1], OUTPUT);
+  pinMode(pins[2], OUTPUT);
+  pinMode(pins[3], OUTPUT);
+  pinMode(pins[4], OUTPUT);
 
   taskid_t taskId0 = taskManager.scheduleFixedRate(blinkPeriod[0], [] {
     if (ledState[0] == LOW) {
